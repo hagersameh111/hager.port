@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaLinkedin, FaEnvelope, FaMapMarkerAlt,FaHtml5,FaReact,FaCss3Alt ,FaBootstrap, FaCode, FaPhone} from 'react-icons/fa';
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import { IoLogoJavascript } from "react-icons/io5";
 import { TbBrandCSharp, TbBrandVite,TbBrandTailwind}  from "react-icons/tb";
 import logo from '../src/assets/logo - Copy.jpg'
@@ -9,6 +10,8 @@ import plants from '../src/assets/plants.pdf'
 import Hsaver from '../src/assets/Hsaver.pdf'
 import giza from '../src/assets/giza.jpg'
 import h1 from '../src/assets/hagerr.jpg'
+
+
 
 const SkillIcon = ({ name, icon }) => (
     <motion.div
@@ -48,52 +51,68 @@ const Home = () => {
           { name: "Bootstrap", icon: <FaBootstrap />}
         ]
       };
-
+      useEffect(() => {
+        if (window.location.hash) {
+          const el = document.querySelector(window.location.hash);
+          if (el) {
+            setTimeout(() => {
+              el.scrollIntoView({ behavior: 'smooth' });
+            }, 100); // delay to allow layout to finish rendering
+          }
+        }
+      }, []);
   return (
     <div className="min-h-screen bg-background text-white w-full">
       {/* Navbar */}
       <nav className="w-full top-0 z-50 bg-background/80 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-4 py-4">
-          <div className="flex justify-center items-center gap-12">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-12">
             <div className="flex items-center gap-2">
               <FaCode className="text-primary text-xl" />
               <span className="font-semibold">Hager Sameh</span>
             </div>
-            <a href="#home" className="hover:text-primary transition-colors">Home</a>
-            <a href="#about" className="hover:text-primary transition-colors">About</a>
-            <a href="#skills" className="hover:text-primary transition-colors">Skills</a>
-            <a href="#portfolio" className="hover:text-primary transition-colors">Portfolio</a>
-            <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
+            <div className="flex flex-wrap justify-center gap-4 md:gap-12">
+             <a href="#home" className="hover:text-primary transition-colors">Home</a>
+              <a href="#about" className="hover:text-primary transition-colors">About</a>
+              <a href="#skills" className="hover:text-primary transition-colors">Skills</a>
+              <a href="#portfolio" className="hover:text-primary transition-colors">Portfolio</a>
+              <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
+
+            </div>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-between px-4 pt-20">
+        <section id="home">
+        <div className="relative min-h-screen flex items-center justify-between px-4 pt-20 scroll-mt-20 " >
         <div className="absolute top-20 right-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-0 w-96 h-96 bg-secondary/50 rounded-full blur-3xl" />
         
-        <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-8 items-center">
+        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
+            className="text-center md:text-left"
           >
             <div className="space-y-4">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center justify-center md:justify-start gap-2">
                 <span className="text-xl">Hi, I&apos;m</span>
                 <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-primary">
                   Hager Sameh
                 </h1>
               </div>
               <p className="text-xl text-gray-400">Frontend Web Developer</p>
-              <a 
-                href={cv}
-                download="Hager_Sameh_CV.pdf"
-                className="inline-block px-6 py-2 bg-gradient-primary rounded-full hover:opacity-90 transition-opacity"
-              >
-                Download CV
-              </a>
+              <div className="flex justify-center md:justify-start">
+                <a 
+                  href={cv}
+                  download="Hager_Sameh_CV.pdf"
+                  className="inline-block px-6 py-2 bg-gradient-primary rounded-full hover:opacity-90 transition-opacity"
+                >
+                  Download CV
+                </a>
+              </div>
             </div>
           </motion.div>
 
@@ -103,28 +122,24 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             className="relative flex justify-center items-center"
           >
-            <div className="w-[500px] h-[500px] bg-gradient-to-r from-primary/20 to-secondary/20 rounded-[2rem] overflow-hidden flex justify-center items-center">
+            <div className="w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-gradient-to-r from-primary/20 to-secondary/20 rounded-[2rem] overflow-hidden flex justify-center items-center">
               <img 
                 src={h1} 
                 alt="Hager Sameh" 
-                className="w-[400px] h-[400px] object-cover"
+                className="w-[250px] h-[250px] md:w-[400px] md:h-[400px] object-cover"
               />
             </div>
           </motion.div>
         </div>
+        </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-4 relative">
-        <div className="absolute inset-0 bg-primary/5 rounded-[3rem]" />
+      <section id='about' className="scroll-mt-20" >
+        <div className="py-20 px-4 relative ">
+        <div  className="absolute inset-0 bg-primary/5 rounded-[3rem]" />
         <div className="max-w-6xl mx-auto relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center"
-          >
+         
             <h2 className="text-3xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-primary">
               About Me
             </h2>
@@ -137,33 +152,38 @@ const Home = () => {
               Eager to contribute to real-world projects, grow within a dynamic development team, 
               and apply both creative and technical skills to deliver great user experiences.
             </p>
-          </motion.div>
+          
+        </div>
         </div>
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-4 relative">
-        <div className="absolute inset-0 bg-secondary/5 rounded-[3rem]" />
-        <div className="max-w-6xl mx-auto relative">
-          <h2 className="text-3xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-primary">
-            My Skills
-          </h2>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="grid md:grid-cols-4 gap-6"
-          >
-            {[...skills.languages, ...skills.frameworks].map((skill) => (
-              <SkillIcon key={skill.name} {...skill} />
-            ))}
-          </motion.div>
-        </div>
-      </section>
+      <section id="skills" className="scroll-mt-20 ">
+  <div className="py-20 px-4 relative">
+    <div className="absolute inset-0 bg-secondary/5 rounded-[3rem]" />
+    <div className="max-w-6xl mx-auto relative">
+      <h2 className="text-3xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-primary">
+        My Skills
+      </h2>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6"
+      >
+        {[...skills.languages, ...skills.frameworks].map((skill) => (
+          <SkillIcon key={skill.name} {...skill} />
+        ))}
+      </motion.div>
+    </div>
+  </div>
+</section>
+
 
       {/* Portfolio Section */}
-      <section id="portfolio" className="py-20 px-4">
+      <section id="portfolio" className="scroll-mt-20 ">
+        <div className="py-20 px-4 "> 
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-primary">
             Portfolio
@@ -218,10 +238,11 @@ const Home = () => {
             {/* Add more portfolio items as needed */}
           </div>
         </div>
+        </div> 
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4">
+      <section id="contact" className="py-20 px-4 scroll-mt-20 ">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-primary">
             Contact Me
@@ -243,7 +264,7 @@ const Home = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold">Location</h3>
-                  <p className="text-gray-400">817 Future city, Shorouk, Cairo</p>
+                  <p className="text-gray-400">Future city, Shorouk, Cairo</p>
                 </div>
                
               </div>
