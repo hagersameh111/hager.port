@@ -6,8 +6,7 @@ import { IoLogoJavascript } from "react-icons/io5";
 import { TbBrandCSharp, TbBrandVite,TbBrandTailwind}  from "react-icons/tb";
 import logo from '../src/assets/logo - Copy.jpg'
 import cv from '../src/assets/cv.1.pdf';
-import plants from '../src/assets/plants.pdf'
-import Hsaver from '../src/assets/Hsaver.pdf'
+
 import giza from '../src/assets/giza.jpg'
 import h1 from '../src/assets/hagerr.jpg'
 
@@ -84,55 +83,63 @@ const Home = () => {
       </nav>
 
       {/* Hero Section */}
-        <section id="home">
-        <div className="relative min-h-screen flex items-center justify-between px-4 pt-20 scroll-mt-20 " >
-        <div className="absolute top-20 right-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-0 w-96 h-96 bg-secondary/50 rounded-full blur-3xl" />
-        
-        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center md:text-left"
-          >
-            <div className="space-y-4">
-              <div className="flex items-center justify-center md:justify-start gap-2">
-                <span className="text-xl">Hi, I&apos;m</span>
-                <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-primary">
-                  Hager Sameh
-                </h1>
-              </div>
-              <p className="text-xl text-gray-400">Frontend Web Developer</p>
-              <div className="flex justify-center md:justify-start">
-                <a 
-                  href={cv}
-                  download="Hager_Sameh_CV.pdf"
-                  className="inline-block px-6 py-2 bg-gradient-primary rounded-full hover:opacity-90 transition-opacity"
-                >
-                  Download CV
-                </a>
-              </div>
-            </div>
-          </motion.div>
+      <section id="home">
+  <div className="relative min-h-screen flex items-center justify-between px-4 pt-20 scroll-mt-20">
+    
+    {/* Background Blur Circles */}
+    <div className="absolute top-20 right-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl z-0" />
+    <div className="absolute bottom-20 left-0 w-96 h-96 bg-secondary/50 rounded-full blur-3xl z-0" />
+    
+    <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center z-10 relative">
+      
+      {/* Text Content */}
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-center md:text-left"
+      >
+        <div className="space-y-4">
+          <div className="flex items-center justify-center md:justify-start gap-2">
+            <span className="text-xl">Hi, I&apos;m</span>
+            <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-primary">
+              Hager Sameh
+            </h1>
+          </div>
+          <p className="text-xl text-gray-400">Frontend Web Developer</p>
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="relative flex justify-center items-center"
-          >
-            <div className="w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-gradient-to-r from-primary/20 to-secondary/20 rounded-[2rem] overflow-hidden flex justify-center items-center">
-              <img 
-                src={h1} 
-                alt="Hager Sameh" 
-                className="w-[250px] h-[250px] md:w-[400px] md:h-[400px] object-cover"
-              />
-            </div>
-          </motion.div>
+          {/* Download CV Button */}
+          <div className="flex justify-center md:justify-start z-10 relative">
+            <a 
+              href={cv}
+              download="Hager_Sameh_CV.pdf"
+              className="z-20 inline-block px-6 py-2 bg-gradient-primary rounded-full hover:opacity-90 transition-opacity"
+            >
+              Download CV
+            </a>
+          </div>
         </div>
+      </motion.div>
+
+      {/* Profile Image */}
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        className="relative flex justify-center items-center"
+      >
+        <div className="w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-gradient-to-r from-primary/20 to-secondary/20 rounded-[2rem] overflow-hidden flex justify-center items-center z-10">
+          <img 
+            src={h1} 
+            alt="Hager Sameh" 
+            className="w-[250px] h-[250px] md:w-[400px] md:h-[400px] object-cover"
+          />
         </div>
-      </section>
+      </motion.div>
+
+    </div>
+  </div>
+</section>
 
       {/* About Section */}
       <section id='about' className="scroll-mt-20" >
@@ -195,8 +202,8 @@ const Home = () => {
               className="bg-[#1a1a2e] rounded-lg overflow-hidden"
             >
               <a 
-                href={plants}
-                download="Eyes on Plants.pdf"
+                href={"https://hagersameh111.github.io/plants/"}
+               
               >
                 <div className="h-48 relative">
                   <img 
@@ -208,7 +215,7 @@ const Home = () => {
                 </div>
                 <div className="p-4">
                   <h3 className="text-xl font-semibold mb-2">Eyes on Plants</h3>
-                  <p className="text-gray-400">A website for a plant shop</p>
+                  <p className="text-gray-400">A website for a plant shop, made with React and Tailwind CSS. ps:not mobile friendly yet</p>
                 </div>
               </a>
             </motion.div>
@@ -217,8 +224,8 @@ const Home = () => {
               className="bg-[#1a1a2e] rounded-lg overflow-hidden"
             >
               <a 
-                href={Hsaver}
-                download="Hsafer project"
+                href={"https://hagersameh111.github.io/Hsafer/"}
+                
               >
                 <div className="h-48 relative">
                   <img 
@@ -230,7 +237,7 @@ const Home = () => {
                 </div>
                 <div className="p-4">
                   <h3 className="text-xl font-semibold mb-2">Hsafer project</h3>
-                  <p className="text-gray-400">A travel agency website</p>
+                  <p className="text-gray-400">A travel agency website, made with React and Tailwind CSS. ps:not mobile friendly yet</p>
                 </div>
               </a>
             </motion.div>
