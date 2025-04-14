@@ -215,7 +215,7 @@ const Home = () => {
                 </div>
                 <div className="p-4">
                   <h3 className="text-xl font-semibold mb-2">Eyes on Plants</h3>
-                  <p className="text-gray-400">A website for a plant shop, made with React and Tailwind CSS. ps:not mobile friendly yet</p>
+                  <p className="text-gray-400">A website for a plant shop, made with React and Tailwind CSS.</p>
                 </div>
               </a>
             </motion.div>
@@ -242,7 +242,7 @@ const Home = () => {
               </a>
             </motion.div>
             
-            {/* Add more portfolio items as needed */}
+           
           </div>
         </div>
         </div> 
