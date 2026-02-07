@@ -25,7 +25,7 @@ import game from "../src/assets/game.png"
 
 /* ===================== DATA ===================== */
 
-const radius = window.innerWidth < 768 ? 180 : 290;
+const radius = window.innerWidth < 760 ? 210 : 300;
 
 const skills = [
   { name: "React", icon: FaReact, color: "text-cyan-400" },
@@ -88,7 +88,7 @@ export default function Home() {
       {/* ================= HERO ================= */}
       <section
         id="home"
-        className="relative flex items-center justify-center mt-24 group"
+        className="relative flex items-center justify-center  group mt-3"
       >
         {/* ROTATING ICON CIRCLE */}
         <div className="absolute w-[720px] h-[720px] animate-spin-slow">
@@ -155,31 +155,39 @@ export default function Home() {
       </section>
 
       {/* ================= ABOUT ================= */}
-      <section id="about" className="mt-56">
-        <div className="py-28 px-4 relative">
-          <div className="absolute inset-0 bg-primary/5 rounded-[3rem]" />
+   <section id="about" className="mt-72">
+  <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-start">
 
-          <div className="max-w-6xl mx-auto relative">
-            <h2 className="text-center text-4xl md:text-5xl font-bold mb-16 text-grey-400">
-              About Me
-            </h2>
+    {/* LEFT — Sticky identity */}
+    <div className="md:sticky md:top-40 space-y-6">
+      <h2 className="text-5xl font-bold leading-tight">
+        About<br />Me
+      </h2>
 
-            <div className="space-y-8 text-2xl md:text-3xl text-center leading-relaxed">
-              {aboutLines.map((line, i) => (
-                <p
-                  key={i}
-                  ref={el => (revealRefs.current[i] = el)}
-                  className="reveal-line"
-                >
-                  {line}
-                </p>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <p className="text-gray-400 text-lg max-w-sm">
+        A developer who cares deeply about clarity, performance,
+        and human-centered interfaces.
+      </p>
+    </div>
+
+    {/* RIGHT — Animated lines */}
+    <div className="space-y-10 text-2xl leading-relaxed">
+      {aboutLines.map((line, i) => (
+        <p
+          key={i}
+          ref={el => (revealRefs.current[i] = el)}
+          className="reveal-line"
+        >
+          {line}
+        </p>
+      ))}
+    </div>
+
+  </div>
+</section>
+
       {/* ================= PROJECTS ================= */}
-      <section id="portfolio" className="scroll-mt-20 mt-56">
+      <section id="portfolio" className="scroll-mt-20 mt-20">
         <div className="py-28 px-4">
           <div className="max-w-6xl mx-auto">
 
