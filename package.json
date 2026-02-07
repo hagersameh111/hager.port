@@ -9,8 +9,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist --repo=https://github.com/hagersameh111/hager.port.git"
+    "build:gh": "vite build --mode gh",
+    "deploy": "npm run build:gh && gh-pages -d dist"
   },
   "dependencies": {
     "framer-motion": "^12.29.2",
